@@ -1,2 +1,5 @@
 # nodeJS
 package-lock.json
+
+# WebStorm
+.idea/
