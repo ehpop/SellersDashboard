@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useState} from "react";
-import {Dropdown} from "react-bootstrap";
+import {Dropdown, Stack} from "react-bootstrap";
 import {labelNames} from "../dictionary/HeaderDictionary";
 
 function Header() {
@@ -16,41 +16,6 @@ function Header() {
         <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
             <Container fluid>
                 <Navbar.Brand href="#">Sales Portal Pro</Navbar.Brand>
-                <Form className="d-flex vertical align-items-center">
-                    <Form.Check
-                        data-bs-theme={theme}
-                        type="switch"
-                        id="custom-switch"
-                        onChange={() => {
-                            setTheme(theme === 'light' ? 'dark' : 'light');
-                        }}
-                    />
-                    <Form.Label className={`ms-2 mb-0 ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
-                        {theme === 'light' ? labelNames.lightTheme[language] : labelNames.darkTheme[language]}
-                    </Form.Label>
-                </Form>
-                <Form className={`d-flex align-items-center ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            {labelNames.selectLanguageButtonLabel[language]}
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            {
-                                Object.keys(labelNames.language).map((key) => (
-                                    <Dropdown.Item
-                                        key={key}
-                                        onClick={() => {
-                                            setLanguage(key as 'pl' | 'en');
-                                        }}
-                                    >
-                                        {labelNames.language[key as 'pl' | 'en']}
-                                    </Dropdown.Item>
-                                ))
-                            }
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Form>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}/>
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-${expand}`}
@@ -64,6 +29,44 @@ function Header() {
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
+                        <Stack direction="horizontal" gap={3}>
+                            <Form className="d-flex vertical align-items-center">
+                                <Form.Check
+                                    data-bs-theme={theme}
+                                    type="switch"
+                                    id="custom-switch"
+                                    onChange={() => {
+                                        setTheme(theme === 'light' ? 'dark' : 'light');
+                                    }}
+                                />
+                                <Form.Label className={`ms-2 mb-0 ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
+                                    {theme === 'light' ? labelNames.lightTheme[language] : labelNames.darkTheme[language]}
+                                </Form.Label>
+                            </Form>
+                            <Form className={`d-flex align-items-center ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+                                        {labelNames.selectLanguageButtonLabel[language]}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        {
+                                            Object.keys(labelNames.language).map((key) => (
+                                                <Dropdown.Item
+                                                    key={key}
+                                                    onClick={() => {
+                                                        setLanguage(key as 'pl' | 'en');
+                                                    }}
+                                                >
+                                                    {labelNames.language[key as 'pl' | 'en']}
+                                                </Dropdown.Item>
+                                            ))
+                                        }
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </Form>
+                        </Stack>
+
                         <Nav className="justify-content-end flex-grow-1 pe-3">
                             <Nav.Link href="#action1">
                                 {labelNames.home[language]}
