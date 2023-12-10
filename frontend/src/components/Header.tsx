@@ -6,6 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useState} from "react";
 import {Dropdown, Stack} from "react-bootstrap";
 import {labelNames} from "../dictionary/HeaderDictionary";
+import {NavLink} from "react-router-dom";
 
 function Header() {
     const expand = 'lg';
@@ -15,7 +16,7 @@ function Header() {
     return (
         <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
             <Container fluid>
-                <Navbar.Brand href="#">Sales Portal Pro</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/home">Sales Portal Pro</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}/>
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-${expand}`}
@@ -68,28 +69,19 @@ function Header() {
                         </Stack>
 
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="#action1">
+                            <Nav.Link as={NavLink} to="/home">
                                 {labelNames.home[language]}
                             </Nav.Link>
-                            <Nav.Link href="#orders">
+                            <Nav.Link as={NavLink} to="/orders">
                                 {labelNames.orders[language]}
                             </Nav.Link>
-                            <Nav.Link href="#salesQuality">
+                            <Nav.Link as={NavLink} to="/salesQuality">
                                 {labelNames.salesQuality[language]}
                             </Nav.Link>
-                            <Nav.Link href="#customerReviews">
+                            <Nav.Link as={NavLink} to="/customerReviews">
                                 {labelNames.customerReviews[language]}
                             </Nav.Link>
-                            <Nav.Link href="#offerRanking">
-                                {labelNames.offerRanking[language]}
-                            </Nav.Link>
-                            <Nav.Link href="#salesChart">
-                                {labelNames.salesChart[language]}
-                            </Nav.Link>
-                            <Nav.Link href="#salesTips">
-                                {labelNames.salesTips[language]}
-                            </Nav.Link>
-                            <Nav.Link href="#action6">
+                            <Nav.Link as={NavLink} to="/login">
                                 {labelNames.signIn[language]}
                             </Nav.Link>
                         </Nav>
