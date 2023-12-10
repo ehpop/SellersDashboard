@@ -1,0 +1,14 @@
+{
+  "home": "Home",
+  "signIn": "Sign In",
+  "orders": "Orders",
+  "salesQuality": "Sales Quality",
+  "customerReviews": "Customer Reviews",
+  "offerRanking": "Offer Ranking",
+  "salesChart": "Sales Chart",
+  "salesTips": "Sales Tips",
+  "selectLanguageButtonLabel": "Select language",
+  "language": "English",
+  "lightTheme": "Light theme",
+  "darkTheme": "Dark theme"
+}

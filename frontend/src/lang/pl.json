@@ -1,0 +1,14 @@
+{
+  "home": "Strona Główna",
+  "signIn": "Zaloguj się",
+  "orders": "Zamówienia",
+  "salesQuality": "Jakość Sprzedaży",
+  "customerReviews": "Opinie kupujących",
+  "offerRanking": "Ranking Ofert",
+  "salesChart": "Wykres sprzedaży",
+  "salesTips": "Porady sprzedażowe",
+  "selectLanguageButtonLabel": "Wybierz język",
+  "language": "Polski",
+  "lightTheme": "Jasny motyw",
+  "darkTheme": "Ciemny motyw"
+}
