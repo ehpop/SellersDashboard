@@ -20,7 +20,7 @@ function Header() {
     const brandName = "Sales Portal Pro";
 
     return (
-        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
+        <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/home">
                     {brandName}
