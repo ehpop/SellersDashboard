@@ -10,8 +10,16 @@ function App({children}: any) {
     const [theme, setTheme] = React.useState<string>('light');
 
     useEffect(() => {
-        // Update the data-bs-theme attribute on the HTML element
         document.documentElement.setAttribute("data-bs-theme", theme);
+
+        const favicon = document.getElementById("favicon");
+        // @ts-ignore
+        if (favicon !== null && favicon.href !== null) {
+            // @ts-ignore
+            favicon.href = theme === 'light'
+                ? "logos/svg/logo-no-background.svg"
+                : "logos/svg/logo-no-background-white.svg";
+        }
     }, [theme]);
 
     return (
