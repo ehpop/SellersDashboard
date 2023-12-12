@@ -4,25 +4,31 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useContext} from "react";
-import {Dropdown, Stack} from "react-bootstrap";
+import {Dropdown, Image, Stack} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {LocaleContext} from "./LocaleContext";
 import ThemeContext from "./ThemeContext";
 import {FormattedMessage} from "react-intl";
 import {locales} from "../i18n/i18n-config";
 
+import './styles/Header.css';
+
 function Header() {
     const expand = 'lg';
     const {theme, setTheme} = useContext(ThemeContext);
     const {setLocale} = useContext(LocaleContext);
 
-    const brandName = "Sales Portal Pro";
+    const logoPath = theme === 'light'
+        ? "logos/svg/logo-no-background.svg"
+        : "logos/svg/logo-no-background-white.svg";
 
     return (
         <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/home">
-                    {brandName}
+                    <Container fluid className="d-flex align-items-center">
+                        <Image className="logo" src={logoPath} alt="logo"/>
+                    </Container>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}/>
                 <Navbar.Offcanvas
