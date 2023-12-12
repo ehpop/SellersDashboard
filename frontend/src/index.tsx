@@ -45,11 +45,11 @@ const router = createBrowserRouter([
                 element: <Login/>,
                 loader: loginLoader,
             },
-            {
-                path: "*",
-                element: <NotFound/>,
-            }
         ],
+    },
+    {
+        path: "*",
+        element: <NotFound/>,
     }
 ]);
 
@@ -59,8 +59,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-            <I18n>
-                <RouterProvider router={router}/>
-            </I18n>
+        <I18n>
+            <RouterProvider router={router}/>
+        </I18n>
     </React.StrictMode>
 );

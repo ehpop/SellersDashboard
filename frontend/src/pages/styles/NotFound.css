@@ -3,5 +3,35 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 10vh;
+}
+
+.error-code {
+    font-size: 15rem;
+    font-weight: 900;
+    color: #f1356d;
+    margin-bottom: 0;
+}
+
+.error-reason {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #333;
+    margin-top: 0;
+}
+
+.error-explanation {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #333;
+    margin-top: 0;
+}
+
+.return-home {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #139dff;
+    margin-top: 0;
+    text-decoration: #139dff underline;
+    cursor: pointer;
 }
