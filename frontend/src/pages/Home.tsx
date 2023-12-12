@@ -1,14 +1,15 @@
 import "./styles/Home.css";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import MainTabs from "../components/MainTabs";
+import Container from "react-bootstrap/Container";
 
 function Home() {
     useDocumentTitle("Home");
 
     return (
-    <div className="main-div">
-      <h1>Home</h1>
-      <p>This is the home page</p>
-    </div>
+        <Container fluid>
+            <MainTabs/>
+        </Container>
   );
 }
 

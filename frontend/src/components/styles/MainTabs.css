@@ -1,0 +1,14 @@
+.Tab {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 5px #ccc;
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px;
+    position: relative;
+    top: 1px;
+    width: 100%;
+    z-index: 1;
+}
