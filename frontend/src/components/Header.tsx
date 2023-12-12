@@ -6,8 +6,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useContext} from "react";
 import {Dropdown, Image, Stack} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
-import {LocaleContext} from "./LocaleContext";
-import ThemeContext from "./ThemeContext";
+import {LocaleContext} from "../context/LocaleContext";
+import ThemeContext from "../context/ThemeContext";
 import {FormattedMessage} from "react-intl";
 import {locales} from "../i18n/i18n-config";
 
