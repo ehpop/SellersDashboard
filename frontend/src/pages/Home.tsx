@@ -1,7 +1,10 @@
 import "./styles/Home.css";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 function Home() {
-  return (
+    useDocumentTitle("Home");
+
+    return (
     <div className="main-div">
       <h1>Home</h1>
       <p>This is the home page</p>

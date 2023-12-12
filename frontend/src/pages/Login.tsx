@@ -2,8 +2,11 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import './styles/Login.css';
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 function Login() {
+    useDocumentTitle("Login");
+
     const handleSubmit = (event: React.MouseEvent) => {
         event.preventDefault();
         console.log(event);
