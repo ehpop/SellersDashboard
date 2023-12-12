@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import {useEffect} from 'react'
 
 function useDocumentTitle(title: string, prevailOnUnmount = false) {
     const defaultTitle = "Sales Portal Pro";
