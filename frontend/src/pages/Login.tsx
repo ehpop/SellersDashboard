@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import './styles/Login.css';
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import Container from "react-bootstrap/Container";
 
 function Login() {
     useDocumentTitle("Login");
@@ -13,9 +14,9 @@ function Login() {
     }
 
     return(
-        <div className="main-div">
+        <Container className="main-login-container">
             <h1>Login</h1>
-            <div className="form-div">
+            <Container className="form-container">
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -33,8 +34,8 @@ function Login() {
                         Submit
                     </Button>
                 </Form>
-            </div>
-        </div>
+            </Container>
+        </Container>
 
     );
 
