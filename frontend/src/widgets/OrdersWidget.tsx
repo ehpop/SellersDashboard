@@ -1,14 +1,14 @@
-
 import React from "react";
-import { FormattedMessage } from "react-intl";
+import {FormattedMessage} from "react-intl";
+import Container from "react-bootstrap/Container";
 
 const OrdersWidget = () => {
   return (
-    <div>
+      <Container fluid>
       <h2>
         <FormattedMessage id="orders.widget.title" defaultMessage="Orders Widget" />
       </h2>
-    </div>
+      </Container>
   );
 };
 

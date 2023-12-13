@@ -25,22 +25,34 @@ const MainTabs = () => {
                 fill
             >
                 <Tab eventKey="orders" title="Orders">
-                    <OrdersWidget/>
+                    <Container className="widget">
+                        <OrdersWidget/>
+                    </Container>
                 </Tab>
                 <Tab eventKey="customerReviews" title="Customer Reviews">
-                    <CustomerReviewsWidget/>
+                    <Container className="widget">
+                        <CustomerReviewsWidget/>
+                    </Container>
                 </Tab>
                 <Tab eventKey="salesQuality" title="Sales Quality">
-                    <SalesQualityWidget/>
+                    <Container className="widget">
+                        <SalesQualityWidget/>
+                    </Container>
                 </Tab>
                 <Tab eventKey="rankingOfOffers" title="Ranking Of Offers">
-                    <RankingOfOffersWidget/>
+                    <Container className="widget">
+                        <RankingOfOffersWidget/>
+                    </Container>
                 </Tab>
                 <Tab eventKey="salesChart" title="Sales Chart">
-                    <SalesChartWidget/>
+                    <Container className="widget">
+                        <SalesChartWidget/>
+                    </Container>
                 </Tab>
                 <Tab eventKey="salesTips" title="Sales Tips">
-                    <SalesTipsWidget/>
+                    <Container className="widget">
+                        <SalesTipsWidget/>
+                    </Container>
                 </Tab>
             </Tabs>
         </Container>
