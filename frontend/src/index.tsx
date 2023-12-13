@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import {
-    createBrowserRouter, Outlet,
-    RouterProvider
-} from "react-router-dom";
+import './styles/index.css';
+import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import App, {appLoader} from './App';
 import Orders, {ordersLoader} from "./pages/Orders";
 import SalesQuality, {salesQualityLoader} from "./pages/SalesQuality";

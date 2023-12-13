@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import './App.css';
+import './styles/App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ThemeContext from "./context/ThemeContext";
 import {Stack} from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 function App({children}: any) {
     const [theme, setTheme] = React.useState<string>('light');
@@ -26,7 +27,9 @@ function App({children}: any) {
         <ThemeContext.Provider value={{theme, setTheme}}>
             <Stack className="App">
                 <Header/>
-                {children}
+                <Container fluid className="main-container">
+                    {children}
+                </Container>
                 <Footer/>
             </Stack>
         </ThemeContext.Provider>
