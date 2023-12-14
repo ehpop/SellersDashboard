@@ -1,14 +1,24 @@
 import React from "react";
 import "./styles/Orders.css";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import {Col, Row} from "react-bootstrap";
+import {FormattedMessage} from "react-intl";
+import Container from "react-bootstrap/Container";
 
 function Orders() {
     useDocumentTitle("Orders");
 
-    return <div className="main-div">
-        <h1>Orders</h1>
-        <p>Some text</p>
-    </div>
+    return (
+        <Container className="page-main-div">
+            <Row>
+                <Col>
+                    <h1>
+                        <FormattedMessage id={"orders.title"} defaultMessage={"Orders"}/>
+                    </h1>
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
 export function ordersLoader() {
