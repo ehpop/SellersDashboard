@@ -25,12 +25,12 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link to={"/about"}>
-                                    <FormattedMessage id="footer.home" defaultMessage="About"/>
+                                    <FormattedMessage id="footer.about" defaultMessage="About"/>
                                 </Link>
                             </li>
                             <li>
                                 <Link to={"/contact"}>
-                                    <FormattedMessage id="footer.home" defaultMessage="Contact"/>
+                                    <FormattedMessage id="footer.contact" defaultMessage="Contact"/>
                                 </Link>
                             </li>
                         </ul>
