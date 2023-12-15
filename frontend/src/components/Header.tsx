@@ -16,7 +16,7 @@ import './styles/Header.css';
 function Header() {
     const expand = 'lg';
     const {theme, setTheme} = useContext(ThemeContext);
-    const {setLocale} = useContext(LocaleContext);
+    const {locale, setLocale} = useContext(LocaleContext);
 
     const logoPath = theme === 'light'
         ? "logos/svg/logo-no-background.svg"
@@ -63,7 +63,7 @@ function Header() {
                             <Form
                                 className={`d-flex align-items-center ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
                                 <Dropdown>
-                                    <Dropdown.Toggle size="sm" variant="outline-success" id="dropdown-basic">
+                                    <Dropdown.Toggle id="dropdown-basic">
                                         <FormattedMessage id={"selectLanguageButtonLabel"} defaultMessage={"Language"}/>
                                     </Dropdown.Toggle>
 
@@ -75,6 +75,7 @@ function Header() {
                                                     onClick={() => {
                                                         setLocale(key as 'pl' | 'en');
                                                     }}
+                                                    style={{backgroundColor: key === locale ? 'steelblue' : ''}}
                                                 >
                                                     {locales[key as 'pl' | 'en']?.name}
                                                 </Dropdown.Item>
