@@ -72,10 +72,10 @@ function Header() {
                                             Object.keys(locales).map((key) => (
                                                 <Dropdown.Item
                                                     key={key}
+                                                    className={locale === key ? 'active-dropdown-item' : ''}
                                                     onClick={() => {
                                                         setLocale(key as 'pl' | 'en');
                                                     }}
-                                                    style={{backgroundColor: key === locale ? 'steelblue' : ''}}
                                                 >
                                                     {locales[key as 'pl' | 'en']?.name}
                                                 </Dropdown.Item>
