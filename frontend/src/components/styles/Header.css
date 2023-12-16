@@ -9,6 +9,6 @@
 }
 
 .active-dropdown-item {
-    background-color: #4581b3;
-    color: #fff;
+    background-color: #4581b3 !important;
+    color: #fff !important;
 }
