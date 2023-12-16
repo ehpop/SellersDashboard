@@ -1,14 +1,11 @@
-
 import React from "react";
-import { FormattedMessage } from "react-intl";
-
-export const widget_name = 'CustomerReviews';
+import {FormattedMessage} from "react-intl";
 
 const CustomerReviewsWidget = () => {
   return (
     <div>
       <h2>
-        <FormattedMessage id="customer.reviews.widget.title" defaultMessage="CustomerReviews Widget" />
+          <FormattedMessage id="customer.reviews.widget.content" defaultMessage="Customer Reviews"/>
       </h2>
     </div>
   );

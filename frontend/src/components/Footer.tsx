@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+        <footer className="bd-footer mt-5 pt-4 bg-body-tertiary">
             <Container>
                 <Row>
                     <Col md={6}>
@@ -16,7 +16,9 @@ const Footer = () => {
                         </p>
                     </Col>
                     <Col md={3}>
-                        <h5>Links</h5>
+                        <h5>
+                            <FormattedMessage id="footer.links" defaultMessage="Links"/>
+                        </h5>
                         <ul className="list-unstyled">
                             <li>
                                 <Link to={"/home"}>
@@ -36,9 +38,19 @@ const Footer = () => {
                         </ul>
                     </Col>
                     <Col md={3}>
-                        <h5>Contact</h5>
-                        <p>Email: info@example.com</p>
-                        <p>Phone: +123456789</p>
+                        <h5>
+                            <FormattedMessage id="footer.contact" defaultMessage="Contact"/>
+                        </h5>
+                        <ul className="list-unstyled">
+                            <li>
+                                <FormattedMessage id="footer.email" defaultMessage="Email"/>: info@example.com
+                            </li>
+                            <li>
+                                <FormattedMessage id="footer.phone" defaultMessage="Phone"/>: +123456789
+                            </li>
+                        </ul>
+
+
                     </Col>
                 </Row>
             </Container>

@@ -4,9 +4,11 @@ import {Button} from "react-bootstrap";
 import './styles/Login.css';
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import Container from "react-bootstrap/Container";
+import {FormattedMessage, useIntl} from "react-intl";
 
 function Login() {
     useDocumentTitle("Login");
+    const intl = useIntl();
 
     const handleSubmit = (event: React.MouseEvent) => {
         event.preventDefault();
@@ -15,23 +17,48 @@ function Login() {
 
     return(
         <Container className="main-login-container">
-            <h1>Login</h1>
+            <h1>
+                <FormattedMessage id={"login.title"} defaultMessage={intl.formatMessage(
+                    {
+                        id: "login.title",
+                        defaultMessage: "Login"
+                    }
+                )}/>
+            </h1>
             <Container className="form-container">
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Label>
+                            <FormattedMessage id={"login.emailLabel"} defaultMessage={intl.formatMessage(
+                                {
+                                    id: "login.emailLabel",
+                                    defaultMessage: "Email address"
+                                }
+                            )}/>
+                        </Form.Label>
+                        <Form.Control type="email" placeholder={intl.formatMessage(
+                            {
+                                id: "login.emailPlaceholder",
+                                defaultMessage: "Enter email"
+                            }
+                        )}/>
                         <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
+                            <FormattedMessage id={"login.emailHelp"}
+                                              defaultMessage={"We'll never share your email with anyone else."}/>
                         </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Label>
+                            <FormattedMessage id={"login.passwordLabel"} defaultMessage={"Password"}/>
+                        </Form.Label>
+                        <Form.Control type="password" placeholder={intl.formatMessage({
+                            id: "login.passwordPlaceholder",
+                            defaultMessage: "Password"
+                        })}/>
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
-                        Submit
+                        <FormattedMessage id={"login.submitButtonLabel"} defaultMessage={"Submit"}/>
                     </Button>
                 </Form>
             </Container>

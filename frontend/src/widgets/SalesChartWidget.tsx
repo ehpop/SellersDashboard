@@ -1,14 +1,11 @@
-
 import React from "react";
-import { FormattedMessage } from "react-intl";
-
-export const widget_name = 'SalesChart';
+import {FormattedMessage} from "react-intl";
 
 const SalesChartWidget = () => {
   return (
     <div>
       <h2>
-        <FormattedMessage id="sales.chart.widget.title" defaultMessage="SalesChart Widget" />
+          <FormattedMessage id="sales.chart.widget.content" defaultMessage="Sales Chart"/>
       </h2>
     </div>
   );

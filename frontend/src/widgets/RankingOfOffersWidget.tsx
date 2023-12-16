@@ -1,14 +1,11 @@
-
 import React from "react";
-import { FormattedMessage } from "react-intl";
-
-export const widget_name = 'RankingOfOffers';
+import {FormattedMessage} from "react-intl";
 
 const RankingOfOffersWidget = () => {
   return (
     <div>
       <h2>
-        <FormattedMessage id="ranking.of.offers.widget.title" defaultMessage="RankingOfOffers Widget" />
+          <FormattedMessage id="ranking.of.offers.widget.content" defaultMessage="Ranking Of Offers"/>
       </h2>
     </div>
   );

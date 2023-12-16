@@ -6,7 +6,7 @@ const OrdersWidget = () => {
   return (
       <Container fluid>
       <h2>
-        <FormattedMessage id="orders.widget.title" defaultMessage="Orders Widget" />
+          <FormattedMessage id="orders.widget.content" defaultMessage="Orders Widget"/>
       </h2>
       </Container>
   );
