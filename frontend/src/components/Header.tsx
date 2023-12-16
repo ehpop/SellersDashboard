@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useContext} from "react";
-import {Dropdown, Image, Stack} from "react-bootstrap";
+import {Button, Dropdown, Image, Stack} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {LocaleContext} from "../context/LocaleContext";
 import ThemeContext from "../context/ThemeContext";
@@ -21,6 +21,10 @@ function Header() {
     const logoPath = theme === 'light'
         ? "logos/svg/logo-no-background.svg"
         : "logos/svg/logo-no-background-white.svg";
+
+    const setThemeIcon = theme === 'light'
+        ? "icons/svg/sun.svg"
+        : "icons/svg/moon.svg";
 
     return (
         <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
@@ -44,22 +48,11 @@ function Header() {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Stack direction="horizontal" gap={3}>
-                            <Form className="d-flex vertical align-items-center">
-                                <Form.Label className={`ms-2 mb-0 ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
-                                    <FormattedMessage id={"lightTheme"} defaultMessage={"Light Theme"}/>
-                                </Form.Label>
-                                <Form.Check
-                                    data-bs-theme={theme}
-                                    type="switch"
-                                    id="custom-switch"
-                                    onChange={() => {
-                                        setTheme(theme === 'light' ? 'dark' : 'light');
-                                    }}
-                                />
-                                <Form.Label className={`ms-2 mb-0 ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
-                                    <FormattedMessage id={"darkTheme"} defaultMessage={"Dark Theme"}/>
-                                </Form.Label>
-                            </Form>
+                            <Button variant="link" onClick={() => {
+                                setTheme(theme === 'light' ? 'dark' : 'light');
+                            }}>
+                                <Image className="theme-icon" src={setThemeIcon} alt="theme-icon"/>
+                            </Button>
                             <Form
                                 className={`d-flex align-items-center ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
                                 <Dropdown>
