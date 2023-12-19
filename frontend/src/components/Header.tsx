@@ -9,7 +9,7 @@ import {NavLink} from "react-router-dom";
 import {LocaleContext} from "../context/LocaleContext";
 import ThemeContext from "../context/ThemeContext";
 import {FormattedMessage} from "react-intl";
-import {locales} from "../i18n/i18n-config";
+import {locales} from "../lang/i18n/i18n-config";
 
 import './styles/Header.css';
 

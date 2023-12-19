@@ -9,7 +9,7 @@ import CustomerReviews, {customerReviewsLoader} from "./pages/CustomerReviews";
 import Login, {loginLoader} from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Home, {homeLoader} from "./pages/Home";
-import I18n from "./components/I18n";
+import LocaleProvider from "./components/LocaleProvider";
 
 const router = createBrowserRouter([
     {
@@ -60,8 +60,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <I18n>
+        <LocaleProvider>
             <RouterProvider router={router}/>
-        </I18n>
+        </LocaleProvider>
     </React.StrictMode>
 );

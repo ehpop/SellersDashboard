@@ -1,12 +1,12 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import OrdersWidget from '../widgets/OrdersWidget';
-import CustomerReviewsWidget from '../widgets/CustomerReviewsWidget';
-import SalesQualityWidget from '../widgets/SalesQualityWidget';
-import RankingOfOffersWidget from '../widgets/RankingOfOffersWidget';
-import SalesChartWidget from '../widgets/SalesChartWidget';
-import SalesTipsWidget from '../widgets/SalesTipsWidget';
+import OrdersWidget from './widgets/OrdersWidget';
+import CustomerReviewsWidget from './widgets/CustomerReviewsWidget';
+import SalesQualityWidget from './widgets/SalesQualityWidget';
+import RankingOfOffersWidget from './widgets/RankingOfOffersWidget';
+import SalesChartWidget from './widgets/SalesChartWidget';
+import SalesTipsWidget from './widgets/SalesTipsWidget';
 import ThemeContext from '../context/ThemeContext';
 
 import './styles/MainTabs.css';

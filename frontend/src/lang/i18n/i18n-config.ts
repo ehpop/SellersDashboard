@@ -1,5 +1,5 @@
-import enMessages from "../lang/en-US.json";
-import plMessages from "../lang/pl.json";
+import enMessages from "../en-US.json";
+import plMessages from "../pl.json";
 
 export const defaultLocale = "en-US";
 
