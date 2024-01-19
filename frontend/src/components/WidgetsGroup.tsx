@@ -45,7 +45,9 @@ const WidgetsGroup = () => {
                     <Card>
                         <Card.Body>
                             <Card.Title>
-                                {widget.name}
+                                <h1>
+                                    {widget.name}
+                                </h1>
                             </Card.Title>
                             {widget.component()}
                         </Card.Body>
