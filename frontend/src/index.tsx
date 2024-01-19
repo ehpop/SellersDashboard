@@ -9,7 +9,9 @@ import CustomerReviews, {customerReviewsLoader} from "./pages/CustomerReviews";
 import Login, {loginLoader} from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Home, {homeLoader} from "./pages/Home";
-import LocaleProvider from "./components/LocaleProvider";
+import LocaleProvider from "./providers/LocaleProvider";
+import AuthProvider from "./providers/AuthProvider";
+import ThemeProvider from "./providers/ThemeProvider";
 
 const router = createBrowserRouter([
     {
@@ -68,7 +70,11 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <LocaleProvider>
-            <RouterProvider router={router}/>
+            <AuthProvider>
+                <ThemeProvider>
+                    <RouterProvider router={router}/>
+                </ThemeProvider>
+            </AuthProvider>
         </LocaleProvider>
     </React.StrictMode>
 );
