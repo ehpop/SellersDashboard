@@ -46,6 +46,7 @@ const orders: Array<orderType> = [
     }
 ];
 
+
 const OrdersWidget = () => {
     const orderCounts: orderCountType = {
         "waiting for payment": 0,
@@ -70,7 +71,7 @@ const OrdersWidget = () => {
         }
     }
 
-    return (
+    const ordersTable = (
         <Table striped bordered hover size="sm" style={{cursor: "pointer"}}>
             <thead>
             <tr>
@@ -99,6 +100,28 @@ const OrdersWidget = () => {
             }
             </tbody>
         </Table>
+    )
+
+    const promotionBanner = (
+        <div className="alert alert-warning" role="alert">
+            <h3>
+                <FormattedMessage id={"promotion"} defaultMessage={"No sales recorded..."}/>
+            </h3>
+            <h3>
+                <FormattedMessage id={"promotionBanner"}
+                                  defaultMessage={"You can get get our promoting package for 50% off!"}/>
+            </h3>
+        </div>
+    )
+
+    return (
+        <>
+            {
+                orders.length > 0
+                    ? ordersTable
+                    : promotionBanner
+            }
+        </>
     );
 };
 
