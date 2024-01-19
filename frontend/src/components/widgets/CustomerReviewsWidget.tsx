@@ -16,45 +16,45 @@ type customerReviewType = {
 const CustomerReviewsWidget = () => {
     const customerReviews: Array<customerReviewType> = [
         {
-            "firstName": "John",
-            "lastName": "Doe",
+            "firstName": "Jan",
+            "lastName": "Nowakowski",
             "rating": 4,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Solidny zakup. Dobra wartość za pieniądze.",
             "date": new Date("2024-01-06")
         },
         {
             "firstName": "Jane",
             "lastName": "Doe",
             "rating": 5,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Great product! It exceeded my expectations. I would recommend it to anyone.",
             "date": new Date("2024-01-01")
         },
         {
             "firstName": "John",
             "lastName": "Smith",
             "rating": 3,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Average experience. Could be better, could be worse.",
             "date": new Date("2024-01-02")
         },
         {
             "firstName": "Jane",
             "lastName": "Smith",
             "rating": 4,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Outstanding product! I'm amazed by the quality and performance. One issue though - the delivery was late.",
             "date": new Date("2024-01-03")
         },
         {
-            "firstName": "John",
-            "lastName": "Doe",
+            "firstName": "Kamil",
+            "lastName": "Kowalski",
             "rating": 5,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Fantastyczna obsługa! Szybka dostawa i najwyższa jakość.",
             "date": new Date("2024-01-04")
         },
         {
-            "firstName": "Jane",
-            "lastName": "Doe",
+            "firstName": "Anna",
+            "lastName": "Nowak",
             "rating": 1,
-            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+            "comment": "Bardzo rozczarowana. Słaba jakość i nie warta ceny.",
             "date": new Date("2024-01-05")
         }
 
@@ -80,7 +80,47 @@ const CustomerReviewsWidget = () => {
         }
     }, [filter]);
 
-    const table = (
+    const filterSwitch = (
+        <Form className="d-flex m-2">
+            <Form.Label className="me-1 w-100">
+                <h5>
+                    <FormattedMessage id={"customer.reviews.widget.filter.label"} defaultMessage={"Filter reviews: "}/>
+                </h5>
+            </Form.Label>
+            <Form.Select aria-label="Select reviews" onChange={(event) => {
+                setFilter(event.target.value as ratingType);
+            }}>
+                <option value="all">
+                    <FormattedMessage id={"customer.reviews.widget.filter.all"} defaultMessage={"All"}/>
+                </option>
+                <option value="positive">
+                    <FormattedMessage id={"customer.reviews.widget.filter.positive"} defaultMessage={"Positive"}/>
+                </option>
+                <option value="negative">
+                    <FormattedMessage id={"customer.reviews.widget.filter.negative"} defaultMessage={"Negative"}/>
+                </option>
+            </Form.Select>
+        </Form>
+    )
+
+    const noReviewsToPresent = (
+        <div className="m-5">
+            <h2>
+                <FormattedMessage id="customer.reviews.widget.no.reviews" defaultMessage="No reviews to present"/>
+            </h2>
+        </div>
+    )
+
+    const noReviewsToPresentWithFilter = (
+        <div className="m-5">
+            <h2>
+                <FormattedMessage id="customer.reviews.widget.no.reviews.with.filters"
+                                  defaultMessage="No reviews to present with current filters"/>
+            </h2>
+        </div>
+    )
+
+    const customerReviewsTable = (
         <Table striped bordered hover size="sm">
             <thead>
             <tr>
@@ -112,43 +152,31 @@ const CustomerReviewsWidget = () => {
             </tbody>
         </Table>
     )
-    const filterSwitch = (
-        <Form className="d-flex m-2">
-            <Form.Label className="me-1 w-100">
-                <h5>
-                    <FormattedMessage id={"customer.reviews.widget.filter.label"} defaultMessage={"Filter reviews: "}/>
-                </h5>
-            </Form.Label>
-            <Form.Select aria-label="Select reviews" onChange={(event) => {
-                setFilter(event.target.value as ratingType);
-            }}>
-                <option value="all">
-                    <FormattedMessage id={"customer.reviews.widget.filter.all"} defaultMessage={"All"}/>
-                </option>
-                <option value="positive">
-                    <FormattedMessage id={"customer.reviews.widget.filter.positive"} defaultMessage={"Positive"}/>
-                </option>
-                <option value="negative">
-                    <FormattedMessage id={"customer.reviews.widget.filter.negative"} defaultMessage={"Negative"}/>
-                </option>
-            </Form.Select>
-        </Form>
-    )
 
-    return (
+    const customerReviewsWidget = (
         <>
             {filterSwitch}
             {
                 filteredCustomerReviews.length === 0
-                    ? <FormattedMessage id={"customer.reviews.widget.no.reviews"}
-                                        defaultMessage={"No reviews to display with current filters"}/>
-                    : table
+                    ? noReviewsToPresentWithFilter
+                    : customerReviewsTable
+            }
+        </>
+    )
+
+
+    return (
+        <>
+            {
+                customerReviews.length === 0
+                    ? noReviewsToPresent
+                    : customerReviewsWidget
             }
             {
                 <Link to="/customerReviews">
                     <Button variant="primary" type="submit">
                         <FormattedMessage id={"customer.reviews.widget.button.label"}
-                                          defaultMessage={"See all reviews"}/>
+                                          defaultMessage={"Go to reviews page"}/>
                     </Button>
                 </Link>
             }
