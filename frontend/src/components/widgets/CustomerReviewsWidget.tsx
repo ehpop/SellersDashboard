@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {FormattedMessage} from "react-intl";
-import {Table} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import {Link} from "react-router-dom";
 
 type ratingType = "all" | "positive" | "negative";
 type customerReviewType = {
@@ -79,7 +80,7 @@ const CustomerReviewsWidget = () => {
         }
     }, [filter]);
 
-    let table = (
+    const table = (
         <Table striped bordered hover size="sm">
             <thead>
             <tr>
@@ -113,10 +114,12 @@ const CustomerReviewsWidget = () => {
     )
     const filterSwitch = (
         <Form className="d-flex m-2">
-            <Form.Label className="me-4 w-100">
-                <FormattedMessage id={"customer.reviews.widget.filter.label"} defaultMessage={"Filter reviews: "}/>
+            <Form.Label className="me-1 w-100">
+                <h5>
+                    <FormattedMessage id={"customer.reviews.widget.filter.label"} defaultMessage={"Filter reviews: "}/>
+                </h5>
             </Form.Label>
-            <Form.Select aria-label="Default select example" onChange={(event) => {
+            <Form.Select aria-label="Select reviews" onChange={(event) => {
                 setFilter(event.target.value as ratingType);
             }}>
                 <option value="all">
@@ -132,7 +135,6 @@ const CustomerReviewsWidget = () => {
         </Form>
     )
 
-
     return (
         <>
             {filterSwitch}
@@ -141,6 +143,14 @@ const CustomerReviewsWidget = () => {
                     ? <FormattedMessage id={"customer.reviews.widget.no.reviews"}
                                         defaultMessage={"No reviews to display with current filters"}/>
                     : table
+            }
+            {
+                <Link to="/customerReviews">
+                    <Button variant="primary" type="submit">
+                        <FormattedMessage id={"customer.reviews.widget.button.label"}
+                                          defaultMessage={"See all reviews"}/>
+                    </Button>
+                </Link>
             }
         </>
     );
