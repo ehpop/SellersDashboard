@@ -1,14 +1,17 @@
 import "./styles/Home.css";
 import useDocumentTitle from "../hooks/useDocumentTitle";
-import MainTabs from "../components/MainTabs";
 import Container from "react-bootstrap/Container";
+import WidgetsGroup from "../components/WidgetsGroup";
 
 function Home() {
     useDocumentTitle("Home");
 
     return (
         <Container fluid>
-            <MainTabs/>
+            {/*<MainTabs/>*/}
+            {
+                <WidgetsGroup/>
+            }
         </Container>
   );
 }
