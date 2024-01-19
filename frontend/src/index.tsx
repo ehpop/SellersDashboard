@@ -26,6 +26,13 @@ const router = createBrowserRouter([
                 path: "orders",
                 element: <Orders/>,
                 loader: ordersLoader,
+                children: [
+                    {
+                        path: ":orderStatus",
+                        element: <Orders/>,
+                        loader: ordersLoader,
+                    }
+                ]
             },
             {
                 path: "salesQuality",

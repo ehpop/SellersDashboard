@@ -4,9 +4,11 @@ import useDocumentTitle from "../hooks/useDocumentTitle";
 import {Col, Row} from "react-bootstrap";
 import {FormattedMessage} from "react-intl";
 import Container from "react-bootstrap/Container";
+import {useParams} from "react-router-dom";
 
 function Orders() {
     useDocumentTitle("Orders");
+    const {orderStatus} = useParams()
 
     return (
         <Container className="page-main-div">
@@ -15,6 +17,13 @@ function Orders() {
                     <h1>
                         <FormattedMessage id={"orders.title"} defaultMessage={"Orders"}/>
                     </h1>
+                    {
+                        orderStatus &&
+                        <h2>
+                            <FormattedMessage id={"orders.status"} defaultMessage={"Status: {status}"}
+                                              values={{status: orderStatus}}/>
+                        </h2>
+                    }
                 </Col>
             </Row>
         </Container>
