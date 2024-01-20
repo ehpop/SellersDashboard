@@ -61,9 +61,9 @@ const OrdersWidget = () => {
     const translateOrderStatus = (orderStatus: orderStatusType) => {
         switch (orderStatus) {
             case "waiting for payment":
-                return <FormattedMessage id={"waitingForPayment"} defaultMessage={"Waiting for payment"}/>
+                return <FormattedMessage id={"waiting for payment"} defaultMessage={"Waiting for payment"}/>
             case "not sent":
-                return <FormattedMessage id={"notSent"} defaultMessage={"Not sent"}/>
+                return <FormattedMessage id={"not sent"} defaultMessage={"Not sent"}/>
             case "returned":
                 return <FormattedMessage id={"returned"} defaultMessage={"Returned"}/>
             default:

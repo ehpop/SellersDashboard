@@ -20,8 +20,7 @@ function Orders() {
                     {
                         orderStatus &&
                         <h2>
-                            <FormattedMessage id={"orders.status"} defaultMessage={"Status: {status}"}
-                                              values={{status: orderStatus}}/>
+                            <FormattedMessage id={orderStatus} defaultMessage={orderStatus}/>
                         </h2>
                     }
                 </Col>
