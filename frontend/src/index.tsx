@@ -12,6 +12,7 @@ import Home, {homeLoader} from "./pages/Home";
 import LocaleProvider from "./providers/LocaleProvider";
 import AuthProvider from "./providers/AuthProvider";
 import ThemeProvider from "./providers/ThemeProvider";
+import WorstAspectsProvider from "./providers/WorstAspectsProvider";
 
 const router = createBrowserRouter([
     {
@@ -72,7 +73,9 @@ root.render(
         <LocaleProvider>
             <AuthProvider>
                 <ThemeProvider>
-                    <RouterProvider router={router}/>
+                    <WorstAspectsProvider>
+                        <RouterProvider router={router}/>
+                    </WorstAspectsProvider>
                 </ThemeProvider>
             </AuthProvider>
         </LocaleProvider>
