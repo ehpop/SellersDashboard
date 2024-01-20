@@ -6,13 +6,12 @@ interface IWorstAspectsContext {
     setWorstAspects: (worstAspects: Array<SellersAspect>) => void
 }
 
-const WorstAspectsContext = createContext
-    < IWorstAspectsContext > (
-        {
-            worstAspects: [],
-            setWorstAspects: (worstAspects: Array<SellersAspect>) => {
-            }
+const WorstAspectsContext = createContext<IWorstAspectsContext>(
+    {
+        worstAspects: [],
+        setWorstAspects: (worstAspects: Array<SellersAspect>) => {
         }
-    )
+    }
+)
 
 export default WorstAspectsContext;
