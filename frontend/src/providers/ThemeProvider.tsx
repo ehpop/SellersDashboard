@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import ThemeContext from "../context/ThemeContext";
 
 const ThemeProvider = ({children}: any) => {
-    const [theme, setTheme] = React.useState<string>('light');
+    const [theme, setTheme] = useState<string>('light');
 
     return (
         <ThemeContext.Provider value={{theme, setTheme}}>
