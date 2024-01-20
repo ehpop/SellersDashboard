@@ -13,6 +13,7 @@ import LocaleProvider from "./providers/LocaleProvider";
 import AuthProvider from "./providers/AuthProvider";
 import ThemeProvider from "./providers/ThemeProvider";
 import WorstAspectsProvider from "./providers/WorstAspectsProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,12 +23,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "home",
-                element: <Home/>,
+                element: <ProtectedRoute><Home/></ProtectedRoute>,
                 loader: homeLoader
             },
             {
                 path: "orders",
-                element: <Orders/>,
+                element: <ProtectedRoute><Orders/></ProtectedRoute>,
                 loader: ordersLoader,
                 children: [
                     {
@@ -39,12 +40,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "salesQuality",
-                element: <SalesQuality/>,
+                element: <ProtectedRoute><SalesQuality/></ProtectedRoute>,
                 loader: salesQualityLoader,
             },
             {
                 path: "customerReviews",
-                element: <CustomerReviews/>,
+                element: <ProtectedRoute><CustomerReviews/></ProtectedRoute>,
                 loader: customerReviewsLoader,
             },
             {
