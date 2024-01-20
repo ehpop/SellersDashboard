@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {FormattedMessage, useIntl} from "react-intl";
 import {Button, Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import WorstAspectsContext from "../../context/WorstAspectsContext";
 
-type SellersAspectName =
+export type SellersAspectName =
     "Communication"
     | "Knowledge"
     | "Friendliness"
@@ -75,10 +76,17 @@ function getGradeBasedOnAspects(sellersAspects: Array<SellersAspect>): SellersGr
 }
 
 const SalesQualityWidget = () => {
+    const worstAspectsContext = useContext(WorstAspectsContext);
+
     const {score, maxScore} = getScoreBasedOnAspects(sellersAspects);
     const grade = getGradeBasedOnAspects(sellersAspects);
-    const getWorstAspects = getWorstsAspects(sellersAspects);
+    const worstAspects = getWorstsAspects(sellersAspects);
     const intl = useIntl();
+
+    useEffect(() => {
+        console.log(worstAspects);
+        worstAspectsContext.setWorstAspects(worstAspects);
+    }, []);
 
     const translateGrad = (grade: SellersGrade) => {
         switch (grade) {
@@ -168,7 +176,7 @@ const SalesQualityWidget = () => {
             </tr>
             </thead>
             <tbody>
-            {getWorstAspects.map((aspect, index) => (
+            {worstAspects.map((aspect, index) => (
                 <tr key={index}>
                     <td>
                         {translateAspect(aspect.aspectName)}
