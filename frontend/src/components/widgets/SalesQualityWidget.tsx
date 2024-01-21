@@ -129,7 +129,7 @@ const SalesQualityWidget = () => {
     }
 
     const scoreTable = (
-        <Table striped bordered hover>
+        <Table striped bordered hover size="sm">
             <thead>
             <tr>
                 <th>
@@ -160,7 +160,7 @@ const SalesQualityWidget = () => {
     )
 
     const worstAspectsTable = (
-        <Table striped bordered hover>
+        <Table striped bordered hover size="sm">
             <thead>
             <tr>
                 <th>

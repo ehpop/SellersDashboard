@@ -56,6 +56,49 @@ const CustomerReviewsWidget = () => {
             "rating": 1,
             "comment": "Bardzo rozczarowana. Słaba jakość i nie warta ceny.",
             "date": new Date("2024-01-05")
+        },
+        {
+            "firstName": "Janina",
+            "lastName": "Nawalska",
+            "rating": 2,
+            "comment": "Niestety produkt nie spełnił moich oczekiwań. Nie polecam. Przynajmniej dostawa była szybka.",
+            "date": new Date("2024-01-05")
+        },
+        {
+            "firstName": "Mariusz",
+            "lastName": "Dzieliński",
+            "rating": 4,
+            "comment": "Naprawdę porządny produkt, szkoda że tak drogo. Polecam.",
+            "date": new Date("2024-01-06")
+        },
+        {
+            "firstName": "Katarzyna",
+            "lastName": "Dziewulska",
+            "rating": 5,
+            "comment": "Super produkt! Polecam każdemu.",
+            "date": new Date("2024-01-07")
+        },
+        {
+            "firstName": "Krzysztof",
+            "lastName": "Kowal",
+            "rating": 3,
+            "comment": "Średni produkt. Nie polecam.",
+            "date": new Date("2024-01-08")
+        },
+        {
+            "firstName": "Stanley",
+            "lastName": "Smith",
+            "rating": 1,
+            "comment": "Poor quality. I'm disappointed.",
+            "date": new Date("2024-01-09")
+        },
+        {
+            "firstName": "Jim",
+            "lastName": "Hudson",
+            "rating": 2,
+            "comment": "Not worth the money. I'm disappointed.",
+            "date": new Date("2024-01-10")
+
         }
 
     ];
@@ -81,13 +124,13 @@ const CustomerReviewsWidget = () => {
     }, [filter]);
 
     const filterSwitch = (
-        <Form className="d-flex m-2">
-            <Form.Label className="me-1 w-100">
-                <h5>
+        <Form className="m-2 d-flex align-items-center">
+            <Form.Label className="me-1 mb-0" style={{whiteSpace: 'nowrap'}}>
+                <h6>
                     <FormattedMessage id={"customer.reviews.widget.filter.label"} defaultMessage={"Filter reviews: "}/>
-                </h5>
+                </h6>
             </Form.Label>
-            <Form.Select aria-label="Select reviews" onChange={(event) => {
+            <Form.Select aria-label="Select reviews" size="sm" onChange={(event) => {
                 setFilter(event.target.value as ratingType);
             }}>
                 <option value="all">
@@ -101,7 +144,8 @@ const CustomerReviewsWidget = () => {
                 </option>
             </Form.Select>
         </Form>
-    )
+    );
+
 
     const noReviewsToPresent = (
         <div className="m-5">
@@ -154,14 +198,14 @@ const CustomerReviewsWidget = () => {
     )
 
     const customerReviewsWidget = (
-        <>
+        <div className="d-flex flex-column align-items-center justify-content-center">
             {filterSwitch}
             {
                 filteredCustomerReviews.length === 0
                     ? noReviewsToPresentWithFilter
                     : customerReviewsTable
             }
-        </>
+        </div>
     )
 
 

@@ -49,7 +49,7 @@ function Header() {
     console.log("Header: ", auth, account, user)
 
     return (
-        <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
+        <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-2" data-bs-theme={theme}>
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/home">
                     <Container fluid className="d-flex align-items-center">
@@ -116,7 +116,6 @@ function Header() {
                                                         className={account === accountInList ? 'active-dropdown-item' : ''}
                                                         onClick={() => {
                                                             setAccount(accountInList);
-                                                            console.log("Selected account: ", accountInList);
                                                         }}
                                                     >
                                                         {accountInList}
@@ -147,7 +146,7 @@ function Header() {
                             {
                                 auth
                                     ? (
-                                        <Nav.Link as={Button} onClick={handleLogout}>
+                                        <Nav.Link onClick={handleLogout}>
                                             <FormattedMessage id={"logout"} defaultMessage={"Logout"}/>
                                         </Nav.Link>
                                     )

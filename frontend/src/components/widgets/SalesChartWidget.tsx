@@ -165,13 +165,13 @@ const SalesChartWidget = () => {
     }, [salesArray, timePeriod, chartDataDisplayed, displayAdditionalData]);
 
     const chartTypeSelect = (
-        <Form className="m-2">
+        <Form className="m-1">
             <Form.Label className="me-1">
                 <h6>
                     <FormattedMessage id={"sales.chart.widget.label.chart.type"} defaultMessage={"Chart type:"}/>
                 </h6>
             </Form.Label>
-            <Form.Select aria-label="Chart type" onChange={(event) => {
+            <Form.Select aria-label="Chart type" size="sm" onChange={(event) => {
                 setChartType(event.target.value as chartType);
             }}>
                 <option value="bar">
@@ -185,13 +185,13 @@ const SalesChartWidget = () => {
     );
 
     const timePeriodSelect = (
-        <Form className="m-2">
+        <Form className="m-1">
             <Form.Label className="me-1">
                 <h6>
                     <FormattedMessage id={"sales.chart.widget.label.time.period"} defaultMessage={"Time period:"}/>
                 </h6>
             </Form.Label>
-            <Form.Select aria-label="Time period" onChange={(event) => {
+            <Form.Select aria-label="Time period" size="sm" onChange={(event) => {
                 setTimePeriod(event.target.value as timePeriod);
             }}>
                 <option value="day">
@@ -208,13 +208,13 @@ const SalesChartWidget = () => {
     );
 
     const chartDataSelect = (
-        <Form className="m-2">
+        <Form className="m-1">
             <Form.Label className="me-1">
                 <h6>
                     <FormattedMessage id={"sales.chart.widget.label.chart.data"} defaultMessage={"Chart data:"}/>
                 </h6>
             </Form.Label>
-            <Form.Select aria-label="Chart data" onChange={(event) => {
+            <Form.Select aria-label="Chart data" size="sm" onChange={(event) => {
                 setChartDataDisplayed(event.target.value as chartDataType);
             }}>
                 <option value="soldUnits">
@@ -228,32 +228,38 @@ const SalesChartWidget = () => {
     );
 
     const displayAdditionalDataSelect = (
-        <Form className="m-2">
+        <Form className="m-1">
             <Form.Label className="me-1">
                 <h6>
-                    <FormattedMessage id={"sales.chart.widget.label.display.additional"}
-                                      defaultMessage={"Display additional data:"}/>
+                    <FormattedMessage
+                        id={"sales.chart.widget.label.display.additional"}
+                        defaultMessage={"Display additional data:"}
+                    />
                 </h6>
             </Form.Label>
-            <Form.Check
-                type="switch"
-                id="custom-switch"
-                className="pb-1 pt-2 ps-0"
-                onChange={(event) => {
-                    setDisplayAdditionalData(event.target.checked);
-                }}
-            />
+            <Form.Select aria-label="Display additional data" size="sm" onChange={(event) => {
+                setDisplayAdditionalData(event.target.value === "YES");
+            }}>
+                <option value="NO">
+                    <FormattedMessage id={"sales.chart.widget.label.no"} defaultMessage={"No"}/>
+                </option>
+                <option value="YES">
+                    <FormattedMessage id={"sales.chart.widget.label.yes"} defaultMessage={"Yes"}/>
+                </option>
+            </Form.Select>
         </Form>
     );
 
+
     const selectOptionsContainer = (
-        <div className="d-flex align-items-center justify-content-center flex-wrap">
+        <div className="d-flex flex-row align-items-center justify-content-center">
             {chartTypeSelect}
             {timePeriodSelect}
             {chartDataSelect}
             {displayAdditionalDataSelect}
         </div>
     );
+
 
     const salesLabel = chartDataDisplayed === "soldUnits"
         ? intl.formatMessage({

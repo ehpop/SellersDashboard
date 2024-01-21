@@ -50,13 +50,13 @@ const RankingOfOffersWidget = () => {
     )
 
     const SortOfferHeader = (
-        <Form className="d-flex m-2">
-            <Form.Label className="me-1 w-100">
-                <h5>
+        <Form className="d-flex m-2 align-items-center">
+            <Form.Label className="me-1 mb-0" style={{whiteSpace: "nowrap"}}>
+                <h6>
                     <FormattedMessage id={"ranking.of.offers.widget.label.sorter"} defaultMessage={"Sort offers by: "}/>
-                </h5>
+                </h6>
             </Form.Label>
-            <Form.Select aria-label="Sort offers by" onChange={(event) => {
+            <Form.Select aria-label="Sort offers by" size="sm" onChange={(event) => {
                 setSortType(event.target.value as sortType);
             }}>
                 <option value="Most frequently bought">
@@ -96,13 +96,12 @@ const RankingOfOffersWidget = () => {
                 <tr key={idx}>
                     <td>{idx + 1}</td>
                     <td>{offer.name}</td>
-                    <td><img src={offer.thumbnail} alt={offer.name} style={{width: "100px"}}/></td>
+                    <td><img src={offer.thumbnail} alt={offer.name} style={{height: "130px"}}/></td>
                     <td>{offer.uniqueViews}</td>
                     {
-                        sortType === "Most frequently bought" ?
-                            <td>{offer.revenue}</td>
-                            :
-                            <td>{offer.soldUnits}</td>
+                        sortType === "Most frequently bought"
+                            ? <td>{offer.revenue}</td>
+                            : <td>{offer.soldUnits}</td>
                     }
                 </tr>
             ))}
@@ -111,10 +110,10 @@ const RankingOfOffersWidget = () => {
     )
 
     return (
-        <>
+        <div className="d-flex flex-column align-items-center justify-content-center">
             {SortOfferHeader}
             {offersTable}
-        </>
+        </div>
     );
 };
 
