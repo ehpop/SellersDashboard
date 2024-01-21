@@ -229,7 +229,7 @@ const SalesChartWidget = () => {
             <Form.Check
                 type="switch"
                 id="custom-switch"
-                className="me-1"
+                className="pb-1 pt-2 ps-0"
                 onChange={(event) => {
                     setDisplayAdditionalData(event.target.checked);
                 }}
