@@ -10,6 +10,7 @@ const WorstAspectsContext = createContext<IWorstAspectsContext>(
     {
         worstAspects: [],
         setWorstAspects: (worstAspects: Array<SellersAspect>) => {
+            console.log("WorstAspectsContext: ", worstAspects)
         }
     }
 )
