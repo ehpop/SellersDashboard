@@ -25,7 +25,6 @@ const WidgetsGroup = () => {
                         </h5>
                     </Card.Title>
                     {widget.component()}
-
                 </Card.Body>
             </Card>
         );

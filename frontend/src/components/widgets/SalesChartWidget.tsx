@@ -297,7 +297,7 @@ const SalesChartWidget = () => {
     const dataLabels = getLabelsBasedOnInterval(timePeriod);
 
     return (
-        <div>
+        <>
             {selectOptionsContainer}
             {
                 chartType === "bar"
@@ -306,7 +306,7 @@ const SalesChartWidget = () => {
                     : <LineChart
                         data={mapChartDataToChartJsData(chartData, chartDataPrev, salesLabel, prevSalesLabel, dataLabels)}/>
             }
-        </div>
+        </>
     );
 };
 
