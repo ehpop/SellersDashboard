@@ -43,23 +43,13 @@ function Login() {
     return (
         <Container className="main-login-container">
             <h1>
-                <FormattedMessage id={"login.title"} defaultMessage={intl.formatMessage(
-                    {
-                        id: "login.title",
-                        defaultMessage: "Login"
-                    }
-                )}/>
+                <FormattedMessage id={"login.title"} defaultMessage={"Login"}/>
             </h1>
             <Container className="form-container">
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>
-                            <FormattedMessage id={"login.emailLabel"} defaultMessage={intl.formatMessage(
-                                {
-                                    id: "login.emailLabel",
-                                    defaultMessage: "Email address"
-                                }
-                            )}/>
+                            <FormattedMessage id={"login.emailLabel"} defaultMessage={"Email address"}/>
                         </Form.Label>
                         <Form.Control type="email" placeholder={intl.formatMessage(
                             {
