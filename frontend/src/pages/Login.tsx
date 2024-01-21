@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import {FormattedMessage, useIntl} from "react-intl";
 import AuthContext from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
+import {users} from "../data/mockAccounts";
 
 function Login() {
     useDocumentTitle("Login");
@@ -15,30 +16,31 @@ function Login() {
     const [password, setPassword] = React.useState<string>("");
 
     const intl = useIntl();
-    const authContext = useContext(AuthContext);
+    const {setAuth} = useContext(AuthContext);
+    const {setUser} = useContext(AuthContext);
+    const {setAccount} = useContext(AuthContext);
 
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
-        console.log(email, password);
+        for (let user of users) {
+            if (user.username === email && user.password === password) {
+                setUser(user.username);
+                setAccount(user.username);
+                setAuth(true);
 
-        if (email === "stud@pw.ed.pl" && password === "zetis") {
-            authContext.setAuth(true);
-        } else if (email === "stud2@pw.edu.pl" && password === "zetis") {
-            authContext.setAuth(true);
-        } else if (email === "stud3@pw.edu.pl" && password === "zetis") {
-            authContext.setAuth(true);
-        } else {
-            alert("Wrong credentials");
-            return;
+                alert("Logged in");
+                navigate("/");
+
+                return;
+            }
         }
 
-        alert("Logged in");
-        navigate("/");
+        alert("Wrong credentials")
     }
 
-    return(
+    return (
         <Container className="main-login-container">
             <h1>
                 <FormattedMessage id={"login.title"} defaultMessage={intl.formatMessage(

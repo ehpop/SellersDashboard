@@ -3,20 +3,34 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Button, Dropdown, Image, Stack} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {LocaleContext} from "../context/LocaleContext";
 import ThemeContext from "../context/ThemeContext";
 import {FormattedMessage} from "react-intl";
 import {locales} from "../lang/i18n/i18n-config";
+import {users} from "../data/mockAccounts";
 
 import './styles/Header.css';
+import AuthContext from "../context/AuthContext";
 
 function Header() {
     const expand = 'lg';
     const {theme, setTheme} = useContext(ThemeContext);
     const {locale, setLocale} = useContext(LocaleContext);
+    const {account, setAccount} = useContext(AuthContext);
+    const {user, setUser} = useContext(AuthContext);
+    const {auth, setAuth} = useContext(AuthContext);
+
+    const [linkedAccounts, setLinkedAccounts] = useState<Array<string>>([]);
+
+    useEffect(() => {
+        const foundUser = users.filter((userObject) => userObject.username === user)[0];
+        if (foundUser) {
+            setLinkedAccounts(foundUser.linkedAccounts);
+        }
+    }, [user]);
 
     const logoPath = theme === 'light'
         ? "logos/svg/logo-no-background.svg"
@@ -25,6 +39,14 @@ function Header() {
     const setThemeIcon = theme === 'light'
         ? "icons/svg/sun.svg"
         : "icons/svg/moon.svg";
+
+    const handleLogout = () => {
+        setAuth(false);
+        setUser(null);
+        setAccount(null);
+    }
+
+    console.log("Header: ", auth, account, user)
 
     return (
         <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme={theme}>
@@ -77,6 +99,36 @@ function Header() {
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>
+                            {auth && linkedAccounts &&
+                                <Form
+                                    className={`d-flex align-items-center ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
+                                    <Dropdown>
+                                        <Dropdown.Toggle id="dropdown-account">
+                                            <FormattedMessage id={"selectAccountButton"}
+                                                              defaultMessage={"Select account"}/>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            {
+                                                linkedAccounts.map((accountInList, index) => (
+                                                    <Dropdown.Item
+                                                        key={index}
+                                                        className={account === accountInList ? 'active-dropdown-item' : ''}
+                                                        onClick={() => {
+                                                            setAccount(accountInList);
+                                                            console.log("Selected account: ", accountInList);
+                                                        }}
+                                                    >
+                                                        {accountInList}
+                                                    </Dropdown.Item>
+                                                ))
+                                            }
+
+                                        </Dropdown.Menu>
+
+                                    </Dropdown>
+                                </Form>
+                            }
                         </Stack>
 
                         <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -92,9 +144,19 @@ function Header() {
                             <Nav.Link as={NavLink} to="/customerReviews">
                                 <FormattedMessage id={"customerReviews"} defaultMessage={"Customer Reviews"}/>
                             </Nav.Link>
-                            <Nav.Link as={NavLink} to="/login">
-                                <FormattedMessage id={"signIn"} defaultMessage={"Sing In"}/>
-                            </Nav.Link>
+                            {
+                                auth
+                                    ? (
+                                        <Nav.Link as={Button} onClick={handleLogout}>
+                                            <FormattedMessage id={"logout"} defaultMessage={"Logout"}/>
+                                        </Nav.Link>
+                                    )
+                                    : (
+                                        <Nav.Link as={NavLink} to="/login">
+                                            <FormattedMessage id={"signIn"} defaultMessage={"Sing In"}/>
+                                        </Nav.Link>
+                                    )
+                            }
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

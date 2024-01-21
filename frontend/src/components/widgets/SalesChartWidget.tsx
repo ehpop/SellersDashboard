@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {FormattedMessage, useIntl} from "react-intl";
 import Form from "react-bootstrap/Form";
-import {mockSales, sale} from "../../data/mockSales";
+import {mockSalesForAllUsers, sale} from "../../data/mockSales";
 import BarChart from "../charts/BarChart";
 import LineChart from "../charts/LineChart";
 import {getCurrentWeekNumber, getWeekDay, getWeekNumber} from "../../utils/dateUtils";
 import {MONTHS, WEEK_DAYS} from "../../utils/constants";
+import AuthContext from "../../context/AuthContext";
 
 type chartType = "bar" | "line";
 type timePeriod = "day" | "week" | "month";
@@ -135,16 +136,24 @@ function mapChartDataToChartJsData(chartData: chartDataObject, chartDataPrev: ch
 }
 
 const SalesChartWidget = () => {
+    const {account} = useContext(AuthContext);
+
     const [chartType, setChartType] = useState<chartType>("bar");
     const [timePeriod, setTimePeriod] = useState<timePeriod>("day");
     const [chartDataDisplayed, setChartDataDisplayed] = useState<chartDataType>("soldUnits");
     const [displayAdditionalData, setDisplayAdditionalData] = useState<boolean>(false);
-    const [salesArray, setSalesArray] = useState<Array<sale>>(mockSales);
 
+    const [salesArray, setSalesArray] = useState<Array<sale>>([]);
     const [chartData, setChartDataArray] = useState<chartDataObject>(transformData(salesArray, timePeriod, chartDataDisplayed, false));
     const [chartDataPrev, setChartDataPrev] = useState<chartDataObject | undefined>(undefined);
 
     const intl = useIntl();
+
+    useEffect(() => {
+        if (account) {
+            setSalesArray(mockSalesForAllUsers[account])
+        }
+    }, [account]);
 
     useEffect(() => {
         setChartDataArray(transformData(salesArray, timePeriod, chartDataDisplayed, false));
