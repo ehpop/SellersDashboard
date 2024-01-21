@@ -15,33 +15,6 @@ import {Stack} from "react-bootstrap";
 const WidgetsGroup = () => {
     const intl = useIntl();
 
-    const widgets = [
-        {
-            "component": CustomerReviewsWidget,
-            "name": intl.formatMessage({id: "customer.reviews.widget.content", defaultMessage: "Customer Reviews"})
-        },
-        {
-            "component": OrdersWidget,
-            "name": intl.formatMessage({id: "orders.widget.content", defaultMessage: "Orders"})
-        },
-        {
-            "component": RankingOfOffersWidget,
-            "name": intl.formatMessage({id: "ranking.of.offers.widget.content", defaultMessage: "Ranking of Offers"})
-        },
-        {
-            "component": SalesChartWidget,
-            "name": intl.formatMessage({id: "sales.chart.widget.content", defaultMessage: "Sales Chart"})
-        },
-        {
-            "component": SalesQualityWidget,
-            "name": intl.formatMessage({id: "sales.quality.widget.content", defaultMessage: "Sales Quality"})
-        },
-        {
-            "component": SalesTipsWidget,
-            "name": intl.formatMessage({id: "sales.tips.widget.content", defaultMessage: "Sales Tips"})
-        },
-    ];
-
     const mapWidgetToCard = (widget: any) => {
         return (
             <Card>
