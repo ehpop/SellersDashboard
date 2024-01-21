@@ -84,7 +84,6 @@ const SalesQualityWidget = () => {
     const intl = useIntl();
 
     useEffect(() => {
-        console.log(worstAspects);
         worstAspectsContext.setWorstAspects(worstAspects);
     }, []);
 
