@@ -12,3 +12,8 @@
     background-color: #4581b3 !important;
     color: #fff !important;
 }
+
+.user-photo {
+    width: 20px;
+    height: 20px;
+}

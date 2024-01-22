@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import {FormattedMessage, useIntl} from "react-intl";
 import AuthContext from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
-import {users} from "../data/mockAccounts";
+import {users} from "../data/mockUsers";
 
 function Login() {
     useDocumentTitle("Login");

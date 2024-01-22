@@ -1,3 +1,4 @@
+//TODO: Right now extract does not work with this file. Need to fix it.
 export const WEEK_DAYS = [
     {id: 'weekday.1', defaultMessage: 'Monday'},
     {id: 'weekday.2', defaultMessage: 'Tuesday'},

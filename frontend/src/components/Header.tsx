@@ -10,27 +10,31 @@ import {LocaleContext} from "../context/LocaleContext";
 import ThemeContext from "../context/ThemeContext";
 import {FormattedMessage} from "react-intl";
 import {locales} from "../lang/i18n/i18n-config";
-import {users} from "../data/mockAccounts";
+import {users, userType} from "../data/mockUsers";
 
 import './styles/Header.css';
 import AuthContext from "../context/AuthContext";
 
 function Header() {
     const expand = 'lg';
+    const [user, setUser] = useState<userType | null>(null);
+
     const {theme, setTheme} = useContext(ThemeContext);
     const {locale, setLocale} = useContext(LocaleContext);
     const {account, setAccount} = useContext(AuthContext);
-    const {user, setUser} = useContext(AuthContext);
+    const {user: username} = useContext(AuthContext);
     const {auth, setAuth} = useContext(AuthContext);
 
     const [linkedAccounts, setLinkedAccounts] = useState<Array<string>>([]);
 
     useEffect(() => {
-        const foundUser = users.filter((userObject) => userObject.username === user)[0];
+        const foundUser = users.filter((userObject) => userObject.username === username)[0];
         if (foundUser) {
+            console.log(foundUser);
+            setUser(foundUser);
             setLinkedAccounts(foundUser.linkedAccounts);
         }
-    }, [user]);
+    }, [username]);
 
     const logoPath = theme === 'light'
         ? "logos/svg/logo-no-background.svg"
@@ -45,8 +49,6 @@ function Header() {
         setUser(null);
         setAccount(null);
     }
-
-    console.log("Header: ", auth, account, user)
 
     return (
         <Navbar sticky="top" key={expand} expand={expand} className="bg-body-tertiary mb-2" data-bs-theme={theme}>
@@ -144,11 +146,16 @@ function Header() {
                                 <FormattedMessage id={"customerReviews"} defaultMessage={"Customer Reviews"}/>
                             </Nav.Link>
                             {
-                                auth
+                                auth && user
                                     ? (
-                                        <Nav.Link onClick={handleLogout}>
-                                            <FormattedMessage id={"logout"} defaultMessage={"Logout"}/>
-                                        </Nav.Link>
+                                        <>
+                                            <Nav.Link onClick={handleLogout}>
+                                                <FormattedMessage id={"logout"} defaultMessage={"Logout"}/>
+                                            </Nav.Link>
+                                            <Nav.Link as={NavLink} to={"/"}>
+                                                <Image className="user-photo" src={user.photo} roundedCircle/>
+                                            </Nav.Link>
+                                        </>
                                     )
                                     : (
                                         <Nav.Link as={NavLink} to="/login">
@@ -156,6 +163,7 @@ function Header() {
                                         </Nav.Link>
                                     )
                             }
+
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
