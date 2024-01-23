@@ -1597,12 +1597,12 @@ const mockSales: Array<sale> = [
 
 const mockSalesCpu: Array<sale> = [
     {
-        "date": new Date("2024-01-23 19:16:59.575805"),
+        "date": new Date("2024-01-23 15:16:59.575805"),
         "name": "Procesor Intel Core i5-12400F, 2.5 GHz, 18 MB, BOX (BX8071512400F)",
         "price": 2083.3333333333335
     },
     {
-        "date": new Date("2024-01-23 16:35:59.575805"),
+        "date": new Date("2024-01-23 14:35:59.575805"),
         "name": "Procesor Intel Core i5-12400F, 2.5 GHz, 18 MB, BOX (BX8071512400F)",
         "price": 2083.3333333333335
     },
@@ -2197,7 +2197,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 2083.3333333333335
     },
     {
-        "date": new Date("2024-01-23 20:02:59.575805"),
+        "date": new Date("2024-01-23 10:02:59.575805"),
         "name": "Procesor AMD Ryzen 7 7800X3D, 4.2 GHz, 96 MB, BOX (100-100000910WOF) ",
         "price": 2000.0
     },
@@ -2647,7 +2647,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 2000.0
     },
     {
-        "date": new Date("2024-01-23 19:09:59.576798"),
+        "date": new Date("2024-01-23 12:09:59.576798"),
         "name": "Procesor AMD Ryzen 5 5600X, 3.7 GHz, 32 MB, BOX (100-100000065BOX) ",
         "price": 1714.2857142857142
     },
@@ -2997,7 +2997,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 1714.2857142857142
     },
     {
-        "date": new Date("2024-01-23 19:05:59.576798"),
+        "date": new Date("2024-01-23 12:05:59.576798"),
         "name": "Procesor AMD Ryzen 5 5600, 3.5 GHz, 32 MB, BOX (100-100000927BOX) ",
         "price": 1400.0
     },
@@ -3247,7 +3247,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 1400.0
     },
     {
-        "date": new Date("2024-01-23 19:12:59.576798"),
+        "date": new Date("2024-01-23 11:12:59.576798"),
         "name": "Procesor AMD Ryzen 5 7600X, 4.7 GHz, 32 MB, BOX (100-100000593WOF) ",
         "price": 1333.3333333333333
     },
@@ -3397,12 +3397,12 @@ const mockSalesCpu: Array<sale> = [
         "price": 1333.3333333333333
     },
     {
-        "date": new Date("2024-01-23 19:06:59.576798"),
+        "date": new Date("2024-01-23 12:06:59.576798"),
         "name": "Procesor AMD Ryzen 5 7600X, 4.7 GHz, 32 MB, BOX (100-100000593WOF) ",
         "price": 1000.0
     },
     {
-        "date": new Date("2024-01-23 18:19:59.576798"),
+        "date": new Date("2024-01-23 15:19:59.576798"),
         "name": "Procesor AMD Ryzen 5 7600X, 4.7 GHz, 32 MB, BOX (100-100000593WOF) ",
         "price": 1000.0
     },
@@ -3472,7 +3472,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 1000.0
     },
     {
-        "date": new Date("2024-01-23 19:43:59.576798"),
+        "date": new Date("2024-01-23 12:43:59.576798"),
         "name": "Procesor AMD Ryzen 7 5800X, 3.8 GHz, 32 MB, BOX (100-100000063WOF) ",
         "price": 1071.4285714285713
     },
@@ -3507,7 +3507,7 @@ const mockSalesCpu: Array<sale> = [
         "price": 1071.4285714285713
     },
     {
-        "date": new Date("2024-01-23 19:34:59.577798"),
+        "date": new Date("2024-01-23 10:34:59.577798"),
         "name": "Procesor AMD Ryzen 5 5600, 3.5 GHz, 32 MB, OEM (100-000000927)",
         "price": 1166.6666666666667
     },
@@ -3525,7 +3525,7 @@ const mockSalesCpu: Array<sale> = [
 
 const mockSalesGpu: Array<sale> = [
     {
-        "date": new Date("2024-01-23 19:50:44.665260"),
+        "date": new Date("2024-01-23 13:50:44.665260"),
         "name": "Gigabyte GeForce RTX 4070 WindForce OC 12GB GDDR6X",
         "price": 1136.3636363636363
     },
@@ -4625,12 +4625,12 @@ const mockSalesGpu: Array<sale> = [
         "price": 1136.3636363636363
     },
     {
-        "date": new Date("2024-01-23 19:48:44.665260"),
+        "date": new Date("2024-01-23 11:48:44.665260"),
         "name": "Gigabyte GeForce RTX 4060 Eagle OC 8GB GDDR6",
         "price": 2222.222222222222
     },
     {
-        "date": new Date("2024-01-23 16:24:44.665260"),
+        "date": new Date("2024-01-23 15:24:44.665260"),
         "name": "Gigabyte GeForce RTX 4060 Eagle OC 8GB GDDR6",
         "price": 2222.222222222222
     },
@@ -5075,17 +5075,17 @@ const mockSalesGpu: Array<sale> = [
         "price": 2222.222222222222
     },
     {
-        "date": new Date("2024-01-23 19:56:44.666271"),
+        "date": new Date("2024-01-23 10:56:44.666271"),
         "name": "Palit GeForce RTX 4070 Dual 12GB GDDR6X",
         "price": 1714.2857142857142
     },
     {
-        "date": new Date("2024-01-23 17:26:44.666271"),
+        "date": new Date("2024-01-23 13:26:44.666271"),
         "name": "Palit GeForce RTX 4070 Dual 12GB GDDR6X",
         "price": 1714.2857142857142
     },
     {
-        "date": new Date("2024-01-23 18:01:44.666271"),
+        "date": new Date("2024-01-23 14:01:44.666271"),
         "name": "Palit GeForce RTX 4070 Dual 12GB GDDR6X",
         "price": 1714.2857142857142
     },
@@ -5425,7 +5425,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 1714.2857142857142
     },
     {
-        "date": new Date("2024-01-23 19:30:44.666271"),
+        "date": new Date("2024-01-23 12:30:44.666271"),
         "name": "MSI Radeon RX 6750 XT Mech 2X 12GB GDDR6",
         "price": 1400.0
     },
@@ -5435,7 +5435,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 1400.0
     },
     {
-        "date": new Date("2024-01-23 18:01:44.666271"),
+        "date": new Date("2024-01-23 15:01:44.666271"),
         "name": "MSI Radeon RX 6750 XT Mech 2X 12GB GDDR6",
         "price": 1400.0
     },
@@ -5675,7 +5675,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 1400.0
     },
     {
-        "date": new Date("2024-01-23 19:37:44.666271"),
+        "date": new Date("2024-01-23 10:37:44.666271"),
         "name": "Gigabyte GeForce RTX 3060 Gaming OC 12GB",
         "price": 833.3333333333334
     },
@@ -5915,7 +5915,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 833.3333333333334
     },
     {
-        "date": new Date("2024-01-23 19:54:44.666271"),
+        "date": new Date("2024-01-23 15:54:44.666271"),
         "name": "Sapphire Radeon RX 6700 XT Pulse Gaming 12GB",
         "price": 782.2222222222222
     },
@@ -6140,7 +6140,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 782.2222222222222
     },
     {
-        "date": new Date("2024-01-23 19:14:44.666271"),
+        "date": new Date("2024-01-23 12:14:44.666271"),
         "name": "Gigabyte GeForce RTX 4070 Gaming OC 12GB",
         "price": 2678.5714285714284
     },
@@ -6280,7 +6280,7 @@ const mockSalesGpu: Array<sale> = [
         "price": 2678.5714285714284
     },
     {
-        "date": new Date("2024-01-23 19:24:44.666271"),
+        "date": new Date("2024-01-23 13:24:44.666271"),
         "name": "MSI GeForce RTX 3060 Ventus 2X OC 12GB GDDR6",
         "price": 1400.0
     },
