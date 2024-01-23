@@ -30,7 +30,6 @@ function Header() {
     useEffect(() => {
         const foundUser = users.filter((userObject) => userObject.username === username)[0];
         if (foundUser) {
-            console.log(foundUser);
             setUser(foundUser);
             setLinkedAccounts(foundUser.linkedAccounts);
         }
