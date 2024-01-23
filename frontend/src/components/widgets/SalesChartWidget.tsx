@@ -50,18 +50,46 @@ function transformData(inputArray: Array<sale>, interval: timePeriod, dataType: 
     }
 
     const isItemInInterval = (date: Date, interval: timePeriod, getPrevPeriod: boolean): boolean => {
-        const currentDate = new Date();
-        const additionalTimePeriod = getPrevPeriod ? 1 : 0;
+        const isDateInTheSameDay = (date: Date) => {
+            return date.getDate() === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear();
+        }
+
+        const isDateInPrevDay = (date: Date) => {
+            return date.getDate() === getYesterday().getDate() && date.getMonth() === getYesterday().getMonth() && date.getFullYear() === getYesterday().getFullYear();
+        }
+
+        const isDateInTheSameWeek = (date: Date) => {
+            return getWeekNumber(date) === getCurrentWeekNumber() && date.getFullYear() === new Date().getFullYear();
+        }
+
+        const isDateInThePrevWeek = (date: Date) => {
+            return getWeekNumber(date) === getCurrentWeekNumber() - 1 && date.getFullYear() === new Date().getFullYear();
+        }
+
+        const isDateInTheSameYear = (date: Date) => {
+            return date.getFullYear() === new Date().getFullYear();
+        }
+
+        const isDateInPrevYear = (date: Date) => {
+            return date.getFullYear() === new Date().getFullYear() - 1;
+        }
 
         switch (interval) {
-            case 'day':
-                return getPrevPeriod ? date.getDate() === getYesterday().getDate() : date.getDate() === currentDate.getDate()
-            case 'week':
-                const currentWeek = getCurrentWeekNumber();
-                const adjustedWeek = (currentWeek - additionalTimePeriod) < 1 ? 52 : currentWeek - additionalTimePeriod;
-                return getWeekNumber(date) === adjustedWeek;
-            case 'month':
-                return date.getFullYear() === currentDate.getFullYear() - additionalTimePeriod;
+            case "day":
+                if (getPrevPeriod) {
+                    return isDateInPrevDay(date);
+                }
+                return isDateInTheSameDay(date);
+            case "week":
+                if (getPrevPeriod) {
+                    return isDateInThePrevWeek(date);
+                }
+                return isDateInTheSameWeek(date);
+            case "month":
+                if (getPrevPeriod) {
+                    return isDateInPrevYear(date);
+                }
+                return isDateInTheSameYear(date);
             default:
                 throw new Error('Invalid interval');
         }
