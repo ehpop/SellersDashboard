@@ -18,7 +18,7 @@ The application has 3 mock users:
 1. **Login Process**
     - To access the "Seller Panel," the user must log in.
     - The login process can be simplified, for example, by entering the user identifier.
-    - <img alt="Log in page" height="85%" src="images/login.png" width="85%"/>
+    - ![Log in page](images/login.png)
 2. **Seller Panel Widgets**
     - The "Seller Panel" includes the following widgets:
         - "Orders"
@@ -27,7 +27,7 @@ The application has 3 mock users:
         - "Offer Rankings"
         - "Sales Chart"
         - "Selling Tips"
-    - <img alt="Widgets" height="85%" src="images/widgets.png" width="85%"/>
+    - ![Widgets](images/widgets.png)
 
 3. **Multilingual Support**
    - The portal should be available in two languages:
